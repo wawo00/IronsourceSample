@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.avidly.ironsourc.sample"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+//Include IronSource maven repositories
+repositories {
+    //IronSource SDK
+    maven {
+        url "https://dl.bintray.com/ironsource-mobile/android-sdk"
+    }
+    maven {
+        //IronSource Adapters
+        url "http://dl.bintray.com/ironsource-mobile/android-adapters"
+    }
+    maven {
+        //Adcolony SDK
+        url  "https://adcolony.bintray.com/AdColony"
+    }
+    maven {
+        //Vungle SDK
+        url 'https://jitpack.io'
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:multidex:1.0.1'
+//    implementation 'com.google.android.gms:play-services-location:15.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.ironsource.sdk:mediationsdk:6.16.0'
+// Add AdColony Network
+    implementation 'com.ironsource.adapters:adcolonyadapter:4.3.0@jar'
+    implementation 'com.adcolony:sdk:4.1.4'
+
+// ***************Add AdMob Network***************
+    implementation 'com.google.android.gms:play-services-ads:17.2.0'
+    implementation 'com.ironsource.adapters:admobadapter:4.3.3@jar'
+
+// Add Applovin Network
+    implementation 'com.ironsource.adapters:applovinadapter:4.3.9@jar'
+// Add Chartboost Network
+    implementation 'com.ironsource.adapters:chartboostadapter:4.3.0@jar'
+// Add Facebook Network
+    implementation 'com.ironsource.adapters:facebookadapter:4.3.12@jar'
+    implementation 'com.facebook.android:audience-network-sdk:5.8.0'
+// Add Mintegral Network
+    implementation 'com.ironsource.adapters:mintegraladapter:4.3.0@jar'
+// Add UnityAds Network
+    implementation 'com.ironsource.adapters:unityadsadapter:4.3.0@jar'
+// Add Vungle Network
+    implementation 'com.ironsource.adapters:vungleadapter:4.1.6@jar'
+    implementation 'com.vungle:publisher-sdk-android:6.4.11'
+
+}
+
+dependencies {
+    implementation 'com.ironsource.adapters:mintegraladapter:4.3.0@jar'
+    implementation 'com.mintegral.msdk:common:12.1.51'
+    implementation 'com.mintegral.msdk:interstitialvideo:12.1.51'
+    implementation 'com.mintegral.msdk:mtgbid:12.1.51'
+    implementation 'com.mintegral.msdk:mtgjscommon:12.1.51'
+    implementation 'com.mintegral.msdk:playercommon:12.1.51'
+    implementation 'com.mintegral.msdk:reward:12.1.51'
+    implementation 'com.mintegral.msdk:videocommon:12.1.51'
+    implementation 'com.mintegral.msdk:videojs:12.1.51'
+}
